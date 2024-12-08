@@ -1,0 +1,54 @@
+<div class="home-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-section__content">
+        <h1>Revolutionize Your Workflow</h1>
+        <p>Powerful software solution designed to streamline your business processes, boost productivity, and drive growth.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-primary" (click)="scrollToPlans()">Get Started</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-section__image">
+        <img src="/assets/dashboard-preview.png" alt="Software Dashboard Preview">
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features-section">
+      <h2>Why Choose Our Solution?</h2>
+      <div class="features-grid">
+        <div class="feature-card" *ngFor="let feature of featureHighlights">
+          <div class="feature-icon">
+            <!-- Replace with actual icon implementation -->
+            <i class="icon-{{ feature.icon }}"></i>
+          </div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Pricing Section -->
+    <section id="pricing-plans" class="pricing-section">
+      <h2>Choose Your Plan</h2>
+      <div class="pricing-grid">
+        <div 
+          *ngFor="let plan of pricingPlans" 
+          class="pricing-card"
+          [ngClass]="{'pricing-card--recommended': plan.recommended}"
+        >
+          <h3 class="plan-name">{{ plan.name }}</h3>
+          <div class="plan-price">
+            ${{ plan.price }}<span>/month</span>
+          </div>
+          <ul class="plan-features">
+            <li *ngFor="let feature of plan.features">
+              {{ feature }}
+            </li>
+          </ul>
+          <button class="btn-choose">Choose Plan</button>
+        </div>
+      </div>
+    </section>
+  </div>

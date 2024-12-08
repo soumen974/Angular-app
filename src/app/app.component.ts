@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+// import { HelloWorldComponent } from "./hello-world/hello-world.component";
+import { LucideAngularModule, House } from 'lucide-angular';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'] 
 })
 export class AppComponent {
-  title = 'prj';
+  title = 'My Angular App';
+  isMenuOpen : boolean = false;
+  CurrentYear : number = new Date().getFullYear();
+  
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
